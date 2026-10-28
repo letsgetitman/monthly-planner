@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>한달노트</title>
+  <meta name="description" content="오늘 할 일부터 월간 목표, 회고, 통계까지 관리하는 플래너">
+  <meta name="theme-color" content="#F3F4F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111613" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="한달노트">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-inner">
+      <span class="brand">한달노트</span>
+      <button class="icon-btn" type="button" data-act="settings" aria-label="설정">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.5A7.7 7.7 0 0 0 7 6.5l-2.4-1-2 3.4 2 1.6a7.6 7.6 0 0 0 0 3l-2 1.6 2 3.4 2.4-1a7.7 7.7 0 0 0 2.6 1.5l.4 2.5h4l.4-2.5a7.7 7.7 0 0 0 2.6-1.5l2.4 1 2-3.4-2-1.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="view" class="view" aria-live="polite"></main>
+
+  <button id="fab" class="fab" type="button" data-act="fab" aria-label="새로 추가">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+
+  <nav class="tabbar" aria-label="화면 전환">
+    <div class="tabbar-inner">
+      <button class="tab" type="button" data-tab="today">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>오늘</span>
+      </button>
+      <button class="tab" type="button" data-tab="week">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.2 5v14M14.8 5v14" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>주간</span>
+      </button>
+      <button class="tab" type="button" data-tab="month">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8.5" cy="14.5" r="1.2" fill="currentColor"/><circle cx="12" cy="14.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="14.5" r="1.2" fill="currentColor"/></svg>
+        <span>월간</span>
+      </button>
+      <button class="tab" type="button" data-tab="stats">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V12M10 20V6M15 20v-9M20 20V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>통계</span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" data-act="close-sheet"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <div id="sheet-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
